@@ -6,6 +6,7 @@ class List extends Component {
     state = {
         users: []
     }
+    
     componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(res => {
@@ -30,7 +31,6 @@ class List extends Component {
                             <p><b>Phone:</b> {user.phone}</p>
                             <p><b>Website:</b> {user.website}</p>
                             <p><b>Address:</b> {user.address.city}, {user.address.street}, {user.address.suit}, {user.address.zipcode}</p>
-                            
                         </div>
                     </div>
                 )

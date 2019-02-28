@@ -7,13 +7,13 @@ import List from './components/List'
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Navbar/>
-          <Route path='/home' component={Home}/>
-          <Route path='/List' component={List}/>
-        </div>
-      </BrowserRouter>
+		<BrowserRouter>
+			<div className="App">
+				<Navbar/>
+				<Route path='/home' component={Home}/>
+				<Route path='/List' component={List}/>
+			</div>
+		</BrowserRouter>
     );
   }
 }
