@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Spinner } from 'reactstrap';
 
-class List extends Component {
+class Get extends Component {
 
-    state = {
-        users: []
-    }
+    constructor(props) {
+        super(props);
+        this.state = {
+          modal: false,
+          users: []
+        };
+    
+        this.toggle = this.toggle.bind(this);
+      }
+    
+      toggle() {
+        this.setState(prevState => ({
+          modal: !prevState.modal
+        }));
+      }
     
     componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -25,7 +38,8 @@ class List extends Component {
                 return (
                     <div className="user card" key={user.id}>
                         <div className="card-content">
-                            <span className="card-title">{user.name}</span>
+                            <span onClick={this.toggle} className="card-title">{user.name}</span>
+                            
                             <p><b>Email:</b> {user.email}</p>
                             <p><b>Company:</b> {user.company.name}</p>
                             <p><b>Phone:</b> {user.phone}</p>
@@ -36,15 +50,17 @@ class List extends Component {
                 )
             })
         ) : (
-            <div className="center">No users yet</div>
+            <div className="center"><Spinner style={{ width: '5rem', height: '5rem' }} type="grow" /></div>
         )
         return (
+            
             <div className="container">
-                <h4 className="center">Users</h4>
+                <h4 className="center users">Users</h4>
                 {userList}
+                
             </div>
         )
     }      
 }
 
-export default List
+export default Get

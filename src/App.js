@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar'
+import NavbarExample from './components/Navbar'
 import { BrowserRouter, Route } from 'react-router-dom'
+
 import Home from './components/Home'
-import List from './components/List'
+import Get from './components/Get'
+import Post from './components/Post'
 
 class App extends Component {
   render() {
     return (
 		<BrowserRouter>
 			<div className="App">
-				<Navbar/>
+				<NavbarExample/>
 				<Route path='/home' component={Home}/>
-				<Route path='/List' component={List}/>
+				<Route path='/Get' component={Get}/>
+				<Route path='/post' component={Post}/>
 			</div>
 		</BrowserRouter>
     );
